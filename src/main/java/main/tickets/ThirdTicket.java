@@ -1,0 +1,2012 @@
+package main.tickets;
+
+import main.tickets.caption.ThirdTicketCaption;
+import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
+import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageCaption;
+import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageReplyMarkup;
+import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
+import org.telegram.telegrambots.meta.api.objects.InputFile;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ThirdTicket {
+    private final String FIRST_WRONG = "1 ❌";
+    private final String SECOND_WRONG = "2 ❌";
+    private final String THIRD_WRONG = "3 ❌";
+    private final String FOURTH_WRONG = "4 ❌";
+    CallbackQuery callbackQuery;
+    Long chat_id;
+    Integer message_id;
+    ThirdTicketCaption caption = new ThirdTicketCaption();
+    public ThirdTicket(CallbackQuery callbackQuery) {
+        this.callbackQuery = callbackQuery;
+        this.chat_id = callbackQuery.getMessage().getChatId();
+        this.message_id = callbackQuery.getMessage().getMessageId();
+    }
+    public SendPhoto question1() {
+        SendPhoto sendPhoto = new SendPhoto();
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thRight1").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thSec1").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thTh1").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp1").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+
+        sendPhoto.setCaption(caption.TTC1);
+        sendPhoto.setPhoto(new InputFile(caption.TTP1));
+        sendPhoto.setChatId(chat_id.toString());
+        sendPhoto.setReplyMarkup(keyboard);
+        return sendPhoto;
+    }
+    public EditMessageReplyMarkup EditMessageReplyMarkupSec1() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thRight1").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text(SECOND_WRONG).callbackData("thSec1").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thTh1").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp1").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+
+        EditMessageReplyMarkup editMessageReplyMarkup = new EditMessageReplyMarkup();
+        editMessageReplyMarkup.setMessageId(message_id);
+        editMessageReplyMarkup.setChatId(chat_id.toString());
+        editMessageReplyMarkup.setReplyMarkup(keyboard);
+        return editMessageReplyMarkup;
+    }
+    public EditMessageReplyMarkup EditMessageReplyMarkupTh1() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thRight1").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thSec1").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text(THIRD_WRONG).callbackData("thTh1").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp1").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+
+        EditMessageReplyMarkup editMessageReplyMarkup = new EditMessageReplyMarkup();
+        editMessageReplyMarkup.setMessageId(message_id);
+        editMessageReplyMarkup.setChatId(chat_id.toString());
+        editMessageReplyMarkup.setReplyMarkup(keyboard);
+        return editMessageReplyMarkup;
+    }
+    public EditMessageCaption editMessageCaptionHelp1() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thRight1").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thSec1").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thTh1").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp1").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+
+        EditMessageCaption editMessageCaption = new EditMessageCaption();
+        editMessageCaption.setCaption(caption.TTCHelp1);
+        editMessageCaption.setMessageId(message_id);
+        editMessageCaption.setChatId(chat_id.toString());
+        editMessageCaption.setReplyMarkup(keyboard);
+        return editMessageCaption;
+    }
+    public SendPhoto question2() {
+        SendPhoto sendPhoto = new SendPhoto();
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir2").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thSec2").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thRight2").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp2").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+
+        sendPhoto.setCaption(caption.TTC2);
+        sendPhoto.setPhoto(new InputFile(caption.TTP2));
+        sendPhoto.setChatId(chat_id.toString());
+        sendPhoto.setReplyMarkup(keyboard);
+        return sendPhoto;
+    }
+    public EditMessageReplyMarkup EditMessageReplyMarkupFir2() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text(FIRST_WRONG).callbackData("thFir2").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thSec2").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thRight2").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp2").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageReplyMarkup editMessageReplyMarkup = new EditMessageReplyMarkup();
+        editMessageReplyMarkup.setMessageId(message_id);
+        editMessageReplyMarkup.setChatId(chat_id.toString());
+        editMessageReplyMarkup.setReplyMarkup(keyboard);
+        return editMessageReplyMarkup;
+    }
+    public EditMessageReplyMarkup EditMessageReplyMarkupSec2() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir2").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text(SECOND_WRONG).callbackData("thSec2").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thRight2").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp2").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageReplyMarkup editMessageReplyMarkup = new EditMessageReplyMarkup();
+        editMessageReplyMarkup.setMessageId(message_id);
+        editMessageReplyMarkup.setChatId(chat_id.toString());
+        editMessageReplyMarkup.setReplyMarkup(keyboard);
+        return editMessageReplyMarkup;
+    }
+    public EditMessageCaption editMessageCaptionHelp2() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir2").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thSec2").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thRight2").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp2").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageCaption editMessageCaption = new EditMessageCaption();
+        editMessageCaption.setCaption(caption.TTCHelp2);
+        editMessageCaption.setMessageId(message_id);
+        editMessageCaption.setChatId(chat_id.toString());
+        editMessageCaption.setReplyMarkup(keyboard);
+        return editMessageCaption;
+    }
+    public SendPhoto question3() {
+        SendPhoto sendPhoto = new SendPhoto();
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir3").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thSec3").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thRight3").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp3").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+
+        sendPhoto.setCaption(caption.TTC3);
+        sendPhoto.setPhoto(new InputFile(caption.TTP3));
+        sendPhoto.setChatId(chat_id.toString());
+        sendPhoto.setReplyMarkup(keyboard);
+        return sendPhoto;
+    }
+    public EditMessageReplyMarkup EditMessageReplyMarkupFir3() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text(FIRST_WRONG).callbackData("thFir3").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thSec3").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thRight3").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp3").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageReplyMarkup editMessageReplyMarkup = new EditMessageReplyMarkup();
+        editMessageReplyMarkup.setMessageId(message_id);
+        editMessageReplyMarkup.setChatId(chat_id.toString());
+        editMessageReplyMarkup.setReplyMarkup(keyboard);
+        return editMessageReplyMarkup;
+    }
+    public EditMessageReplyMarkup EditMessageReplyMarkupSec3() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir3").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text(SECOND_WRONG).callbackData("thSec3").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thRight3").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp3").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageReplyMarkup editMessageReplyMarkup = new EditMessageReplyMarkup();
+        editMessageReplyMarkup.setMessageId(message_id);
+        editMessageReplyMarkup.setChatId(chat_id.toString());
+        editMessageReplyMarkup.setReplyMarkup(keyboard);
+        return editMessageReplyMarkup;
+    }
+    public EditMessageCaption editMessageCaptionHelp3() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir3").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thSec3").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thRight3").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp3").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageCaption editMessageCaption = new EditMessageCaption();
+        editMessageCaption.setCaption(caption.TTCHelp3);
+        editMessageCaption.setMessageId(message_id);
+        editMessageCaption.setChatId(chat_id.toString());
+        editMessageCaption.setReplyMarkup(keyboard);
+        return editMessageCaption;
+    }
+    public SendPhoto question4() {
+        SendPhoto sendPhoto = new SendPhoto();
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir4").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thRight4").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thTh4").build();
+        InlineKeyboardButton button5 = InlineKeyboardButton.builder().text("4").callbackData("thFo4").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp4").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        keyboardButtons.add(button5);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+
+        sendPhoto.setCaption(caption.TTC4);
+        sendPhoto.setPhoto(new InputFile(caption.TTP4));
+        sendPhoto.setChatId(chat_id.toString());
+        sendPhoto.setReplyMarkup(keyboard);
+        return sendPhoto;
+    }
+    public EditMessageReplyMarkup EditMessageReplyMarkupFir4() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text(FIRST_WRONG).callbackData("thFir4").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thRight4").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thTh4").build();
+        InlineKeyboardButton button5 = InlineKeyboardButton.builder().text("4").callbackData("thFo4").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp4").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        keyboardButtons.add(button5);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageReplyMarkup editMessageReplyMarkup = new EditMessageReplyMarkup();
+        editMessageReplyMarkup.setMessageId(message_id);
+        editMessageReplyMarkup.setChatId(chat_id.toString());
+        editMessageReplyMarkup.setReplyMarkup(keyboard);
+        return editMessageReplyMarkup;
+    }
+    public EditMessageReplyMarkup EditMessageReplyMarkupTh4() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir4").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thRight4").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text(THIRD_WRONG).callbackData("thTh4").build();
+        InlineKeyboardButton button5 = InlineKeyboardButton.builder().text("4").callbackData("thFo4").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp4").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        keyboardButtons.add(button5);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageReplyMarkup editMessageReplyMarkup = new EditMessageReplyMarkup();
+        editMessageReplyMarkup.setMessageId(message_id);
+        editMessageReplyMarkup.setChatId(chat_id.toString());
+        editMessageReplyMarkup.setReplyMarkup(keyboard);
+        return editMessageReplyMarkup;
+    }
+    public EditMessageReplyMarkup EditMessageReplyMarkupFo4() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir4").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thRight4").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thTh4").build();
+        InlineKeyboardButton button5 = InlineKeyboardButton.builder().text(FOURTH_WRONG).callbackData("thFo4").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp4").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        keyboardButtons.add(button5);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageReplyMarkup editMessageReplyMarkup = new EditMessageReplyMarkup();
+        editMessageReplyMarkup.setMessageId(message_id);
+        editMessageReplyMarkup.setChatId(chat_id.toString());
+        editMessageReplyMarkup.setReplyMarkup(keyboard);
+        return editMessageReplyMarkup;
+    }
+    public EditMessageCaption editMessageCaptionHelp4() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir4").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thRight4").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thTh4").build();
+        InlineKeyboardButton button5 = InlineKeyboardButton.builder().text("4").callbackData("thFo4").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp4").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        keyboardButtons.add(button5);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageCaption editMessageCaption = new EditMessageCaption();
+        editMessageCaption.setCaption(caption.TTCHelp4);
+        editMessageCaption.setMessageId(message_id);
+        editMessageCaption.setChatId(chat_id.toString());
+        editMessageCaption.setReplyMarkup(keyboard);
+        return editMessageCaption;
+    }
+    public SendPhoto question5() {
+        SendPhoto sendPhoto = new SendPhoto();
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir5").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thRight5").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thTh5").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp5").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+
+        sendPhoto.setCaption(caption.TTC5);
+        sendPhoto.setPhoto(new InputFile(caption.TTP5));
+        sendPhoto.setChatId(chat_id.toString());
+        sendPhoto.setReplyMarkup(keyboard);
+        return sendPhoto;
+    }
+    public EditMessageReplyMarkup EditMessageReplyMarkupFir5() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text(FIRST_WRONG).callbackData("thFir5").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thRight5").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thTh5").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp5").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageReplyMarkup editMessageReplyMarkup = new EditMessageReplyMarkup();
+        editMessageReplyMarkup.setMessageId(message_id);
+        editMessageReplyMarkup.setChatId(chat_id.toString());
+        editMessageReplyMarkup.setReplyMarkup(keyboard);
+        return editMessageReplyMarkup;
+    }
+    public EditMessageReplyMarkup EditMessageReplyMarkupTh5() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir5").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thRight5").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text(THIRD_WRONG).callbackData("thTh5").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp5").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageReplyMarkup editMessageReplyMarkup = new EditMessageReplyMarkup();
+        editMessageReplyMarkup.setMessageId(message_id);
+        editMessageReplyMarkup.setChatId(chat_id.toString());
+        editMessageReplyMarkup.setReplyMarkup(keyboard);
+        return editMessageReplyMarkup;
+    }
+    public EditMessageCaption editMessageCaptionHelp5() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir5").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thRight5").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thTh5").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp5").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageCaption editMessageCaption = new EditMessageCaption();
+        editMessageCaption.setCaption(caption.TTCHelp5);
+        editMessageCaption.setMessageId(message_id);
+        editMessageCaption.setChatId(chat_id.toString());
+        editMessageCaption.setReplyMarkup(keyboard);
+        return editMessageCaption;
+    }
+    public SendPhoto question6() {
+        SendPhoto sendPhoto = new SendPhoto();
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir6").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thSec6").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thRight6").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp6").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+
+        sendPhoto.setCaption(caption.TTC6);
+        sendPhoto.setPhoto(new InputFile(caption.TTP6));
+        sendPhoto.setChatId(chat_id.toString());
+        sendPhoto.setReplyMarkup(keyboard);
+        return sendPhoto;
+    }
+    public EditMessageReplyMarkup EditMessageReplyMarkupFir6() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text(FIRST_WRONG).callbackData("thFir6").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thSec6").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thRight6").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp6").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageReplyMarkup editMessageReplyMarkup = new EditMessageReplyMarkup();
+        editMessageReplyMarkup.setMessageId(message_id);
+        editMessageReplyMarkup.setChatId(chat_id.toString());
+        editMessageReplyMarkup.setReplyMarkup(keyboard);
+        return editMessageReplyMarkup;
+    }
+    public EditMessageReplyMarkup EditMessageReplyMarkupSec6() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir6").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text(SECOND_WRONG).callbackData("thSec6").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thRight6").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp6").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageReplyMarkup editMessageReplyMarkup = new EditMessageReplyMarkup();
+        editMessageReplyMarkup.setMessageId(message_id);
+        editMessageReplyMarkup.setChatId(chat_id.toString());
+        editMessageReplyMarkup.setReplyMarkup(keyboard);
+        return editMessageReplyMarkup;
+    }
+    public EditMessageCaption editMessageCaptionHelp6() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir6").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thSec6").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thRight6").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp6").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageCaption editMessageCaption = new EditMessageCaption();
+        editMessageCaption.setCaption(caption.TTCHelp6);
+        editMessageCaption.setMessageId(message_id);
+        editMessageCaption.setChatId(chat_id.toString());
+        editMessageCaption.setReplyMarkup(keyboard);
+        return editMessageCaption;
+    }
+    public SendPhoto question7() {
+        SendPhoto sendPhoto = new SendPhoto();
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir7").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thRight7").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thTh7").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp7").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+
+        sendPhoto.setCaption(caption.TTC7);
+        sendPhoto.setPhoto(new InputFile(caption.TTP7));
+        sendPhoto.setChatId(chat_id.toString());
+        sendPhoto.setReplyMarkup(keyboard);
+        return sendPhoto;
+    }
+    public EditMessageReplyMarkup EditMessageReplyMarkupFir7() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text(FIRST_WRONG).callbackData("thFir7").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thRight7").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thTh7").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp7").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageReplyMarkup editMessageReplyMarkup = new EditMessageReplyMarkup();
+        editMessageReplyMarkup.setMessageId(message_id);
+        editMessageReplyMarkup.setChatId(chat_id.toString());
+        editMessageReplyMarkup.setReplyMarkup(keyboard);
+        return editMessageReplyMarkup;
+    }
+    public EditMessageReplyMarkup EditMessageReplyMarkupTh7() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir7").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thRight7").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text(THIRD_WRONG).callbackData("thTh7").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp7").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageReplyMarkup editMessageReplyMarkup = new EditMessageReplyMarkup();
+        editMessageReplyMarkup.setMessageId(message_id);
+        editMessageReplyMarkup.setChatId(chat_id.toString());
+        editMessageReplyMarkup.setReplyMarkup(keyboard);
+        return editMessageReplyMarkup;
+    }
+    public EditMessageCaption editMessageCaptionHelp7() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir7").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thRight7").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thTh7").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp7").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageCaption editMessageCaption = new EditMessageCaption();
+        editMessageCaption.setCaption(caption.TTCHelp7);
+        editMessageCaption.setMessageId(message_id);
+        editMessageCaption.setChatId(chat_id.toString());
+        editMessageCaption.setReplyMarkup(keyboard);
+        return editMessageCaption;
+    }
+    public SendPhoto question8() {
+        SendPhoto sendPhoto = new SendPhoto();
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thRight8").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thSec8").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thTh8").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp8").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+
+        sendPhoto.setCaption(caption.TTC8);
+        sendPhoto.setPhoto(new InputFile(caption.TTP8));
+        sendPhoto.setChatId(chat_id.toString());
+        sendPhoto.setReplyMarkup(keyboard);
+        return sendPhoto;
+    }
+    public EditMessageReplyMarkup EditMessageReplyMarkupSec8() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thRight8").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text(SECOND_WRONG).callbackData("thSec8").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thTh8").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp8").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageReplyMarkup editMessageReplyMarkup = new EditMessageReplyMarkup();
+        editMessageReplyMarkup.setMessageId(message_id);
+        editMessageReplyMarkup.setChatId(chat_id.toString());
+        editMessageReplyMarkup.setReplyMarkup(keyboard);
+        return editMessageReplyMarkup;
+    }
+    public EditMessageReplyMarkup EditMessageReplyMarkupTh8() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thRight8").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thSec8").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text(THIRD_WRONG).callbackData("thTh8").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp8").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageReplyMarkup editMessageReplyMarkup = new EditMessageReplyMarkup();
+        editMessageReplyMarkup.setMessageId(message_id);
+        editMessageReplyMarkup.setChatId(chat_id.toString());
+        editMessageReplyMarkup.setReplyMarkup(keyboard);
+        return editMessageReplyMarkup;
+    }
+    public EditMessageCaption editMessageCaptionHelp8() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thRight8").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thSec8").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thTh8").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp8").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageCaption editMessageCaption = new EditMessageCaption();
+        editMessageCaption.setCaption(caption.TTCHelp8);
+        editMessageCaption.setMessageId(message_id);
+        editMessageCaption.setChatId(chat_id.toString());
+        editMessageCaption.setReplyMarkup(keyboard);
+        return editMessageCaption;
+    }
+    public SendPhoto question9() {
+        SendPhoto sendPhoto = new SendPhoto();
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir9").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thSec9").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thRight9").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp9").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+
+        sendPhoto.setCaption(caption.TTC9);
+        sendPhoto.setPhoto(new InputFile(caption.TTP9));
+        sendPhoto.setChatId(chat_id.toString());
+        sendPhoto.setReplyMarkup(keyboard);
+        return sendPhoto;
+    }
+    public EditMessageReplyMarkup EditMessageReplyMarkupFir9() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text(FIRST_WRONG).callbackData("thFir9").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thSec9").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thRight9").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp9").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageReplyMarkup editMessageReplyMarkup = new EditMessageReplyMarkup();
+        editMessageReplyMarkup.setMessageId(message_id);
+        editMessageReplyMarkup.setChatId(chat_id.toString());
+        editMessageReplyMarkup.setReplyMarkup(keyboard);
+        return editMessageReplyMarkup;
+    }
+    public EditMessageReplyMarkup EditMessageReplyMarkupSec9() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir9").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text(SECOND_WRONG).callbackData("thSec9").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thRight9").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp9").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageReplyMarkup editMessageReplyMarkup = new EditMessageReplyMarkup();
+        editMessageReplyMarkup.setMessageId(message_id);
+        editMessageReplyMarkup.setChatId(chat_id.toString());
+        editMessageReplyMarkup.setReplyMarkup(keyboard);
+        return editMessageReplyMarkup;
+    }
+    public EditMessageCaption editMessageCaptionHelp9() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir9").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thSec9").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thRight9").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp9").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageCaption editMessageCaption = new EditMessageCaption();
+        editMessageCaption.setCaption(caption.TTCHelp9);
+        editMessageCaption.setMessageId(message_id);
+        editMessageCaption.setChatId(chat_id.toString());
+        editMessageCaption.setReplyMarkup(keyboard);
+        return editMessageCaption;
+    }
+    public SendPhoto question10() {
+        SendPhoto sendPhoto = new SendPhoto();
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thRight10").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thSec10").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thTh10").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp10").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+
+        sendPhoto.setCaption(caption.TTC10);
+        sendPhoto.setPhoto(new InputFile(caption.TTP10));
+        sendPhoto.setChatId(chat_id.toString());
+        sendPhoto.setReplyMarkup(keyboard);
+        return sendPhoto;
+    }
+    public EditMessageReplyMarkup EditMessageReplyMarkupSec10() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thRight10").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text(SECOND_WRONG).callbackData("thSec10").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thTh10").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp10").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageReplyMarkup editMessageReplyMarkup = new EditMessageReplyMarkup();
+        editMessageReplyMarkup.setMessageId(message_id);
+        editMessageReplyMarkup.setChatId(chat_id.toString());
+        editMessageReplyMarkup.setReplyMarkup(keyboard);
+        return editMessageReplyMarkup;
+    }
+    public EditMessageReplyMarkup EditMessageReplyMarkupTh10() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thRight10").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thSec10").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text(THIRD_WRONG).callbackData("thTh10").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp10").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageReplyMarkup editMessageReplyMarkup = new EditMessageReplyMarkup();
+        editMessageReplyMarkup.setMessageId(message_id);
+        editMessageReplyMarkup.setChatId(chat_id.toString());
+        editMessageReplyMarkup.setReplyMarkup(keyboard);
+        return editMessageReplyMarkup;
+    }
+    public EditMessageCaption editMessageCaptionHelp10() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thRight10").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thSec10").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thTh10").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp10").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageCaption editMessageCaption = new EditMessageCaption();
+        editMessageCaption.setCaption(caption.TTCHelp10);
+        editMessageCaption.setMessageId(message_id);
+        editMessageCaption.setChatId(chat_id.toString());
+        editMessageCaption.setReplyMarkup(keyboard);
+        return editMessageCaption;
+    }
+    public SendPhoto question11() {
+        SendPhoto sendPhoto = new SendPhoto();
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir11").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thSec11").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thRight11").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp11").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+
+        sendPhoto.setCaption(caption.TTC11);
+        sendPhoto.setPhoto(new InputFile(caption.TTP11));
+        sendPhoto.setChatId(chat_id.toString());
+        sendPhoto.setReplyMarkup(keyboard);
+        return sendPhoto;
+    }
+    public EditMessageReplyMarkup EditMessageReplyMarkupFir11() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text(FIRST_WRONG).callbackData("thFir11").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thSec11").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thRight11").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp11").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageReplyMarkup editMessageReplyMarkup = new EditMessageReplyMarkup();
+        editMessageReplyMarkup.setMessageId(message_id);
+        editMessageReplyMarkup.setChatId(chat_id.toString());
+        editMessageReplyMarkup.setReplyMarkup(keyboard);
+        return editMessageReplyMarkup;
+    }
+    public EditMessageReplyMarkup EditMessageReplyMarkupSec11() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir11").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text(SECOND_WRONG).callbackData("thSec11").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thRight11").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp11").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageReplyMarkup editMessageReplyMarkup = new EditMessageReplyMarkup();
+        editMessageReplyMarkup.setMessageId(message_id);
+        editMessageReplyMarkup.setChatId(chat_id.toString());
+        editMessageReplyMarkup.setReplyMarkup(keyboard);
+        return editMessageReplyMarkup;
+    }
+    public EditMessageCaption editMessageCaptionHelp11() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir11").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thSec11").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thRight11").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp11").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageCaption editMessageCaption = new EditMessageCaption();
+        editMessageCaption.setCaption(caption.TTCHelp11);
+        editMessageCaption.setMessageId(message_id);
+        editMessageCaption.setChatId(chat_id.toString());
+        editMessageCaption.setReplyMarkup(keyboard);
+        return editMessageCaption;
+    }
+    public SendPhoto question12() {
+        SendPhoto sendPhoto = new SendPhoto();
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir12").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thRight12").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thTh12").build();
+        InlineKeyboardButton button5 = InlineKeyboardButton.builder().text("4").callbackData("thFo12").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp12").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        keyboardButtons.add(button5);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+
+        sendPhoto.setCaption(caption.TTC12);
+        sendPhoto.setPhoto(new InputFile(caption.TTP12));
+        sendPhoto.setChatId(chat_id.toString());
+        sendPhoto.setReplyMarkup(keyboard);
+        return sendPhoto;
+    }
+    public EditMessageReplyMarkup EditMessageReplyMarkupFir12() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text(FIRST_WRONG).callbackData("thFir12").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thRight12").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thTh12").build();
+        InlineKeyboardButton button5 = InlineKeyboardButton.builder().text("4").callbackData("thFo12").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp12").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        keyboardButtons.add(button5);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageReplyMarkup editMessageReplyMarkup = new EditMessageReplyMarkup();
+        editMessageReplyMarkup.setMessageId(message_id);
+        editMessageReplyMarkup.setChatId(chat_id.toString());
+        editMessageReplyMarkup.setReplyMarkup(keyboard);
+        return editMessageReplyMarkup;
+    }
+    public EditMessageReplyMarkup EditMessageReplyMarkupFo12() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir12").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thRight12").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thTh12").build();
+        InlineKeyboardButton button5 = InlineKeyboardButton.builder().text(FOURTH_WRONG).callbackData("thFo12").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp12").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        keyboardButtons.add(button5);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageReplyMarkup editMessageReplyMarkup = new EditMessageReplyMarkup();
+        editMessageReplyMarkup.setMessageId(message_id);
+        editMessageReplyMarkup.setChatId(chat_id.toString());
+        editMessageReplyMarkup.setReplyMarkup(keyboard);
+        return editMessageReplyMarkup;
+    }
+    public EditMessageReplyMarkup EditMessageReplyMarkupTh12() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir12").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thRight12").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text(THIRD_WRONG).callbackData("thTh12").build();
+        InlineKeyboardButton button5 = InlineKeyboardButton.builder().text("4").callbackData("thFo12").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp12").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        keyboardButtons.add(button5);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageReplyMarkup editMessageReplyMarkup = new EditMessageReplyMarkup();
+        editMessageReplyMarkup.setMessageId(message_id);
+        editMessageReplyMarkup.setChatId(chat_id.toString());
+        editMessageReplyMarkup.setReplyMarkup(keyboard);
+        return editMessageReplyMarkup;
+    }
+    public EditMessageCaption editMessageCaptionHelp12() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir12").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thRight12").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thTh12").build();
+        InlineKeyboardButton button5 = InlineKeyboardButton.builder().text("4").callbackData("thFo12").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp12").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        keyboardButtons.add(button5);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageCaption editMessageCaption = new EditMessageCaption();
+        editMessageCaption.setCaption(caption.TTCHelp12);
+        editMessageCaption.setMessageId(message_id);
+        editMessageCaption.setChatId(chat_id.toString());
+        editMessageCaption.setReplyMarkup(keyboard);
+        return editMessageCaption;
+    }
+    public SendPhoto question13() {
+        SendPhoto sendPhoto = new SendPhoto();
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir13").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thRight13").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thTh13").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp13").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+
+        sendPhoto.setCaption(caption.TTC13);
+        sendPhoto.setPhoto(new InputFile(caption.TTP13));
+        sendPhoto.setChatId(chat_id.toString());
+        sendPhoto.setReplyMarkup(keyboard);
+        return sendPhoto;
+    }
+    public EditMessageReplyMarkup EditMessageReplyMarkupFir13() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text(FIRST_WRONG).callbackData("thFir13").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thRight13").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thTh13").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp13").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageReplyMarkup editMessageReplyMarkup = new EditMessageReplyMarkup();
+        editMessageReplyMarkup.setMessageId(message_id);
+        editMessageReplyMarkup.setChatId(chat_id.toString());
+        editMessageReplyMarkup.setReplyMarkup(keyboard);
+        return editMessageReplyMarkup;
+    }
+    public EditMessageReplyMarkup EditMessageReplyMarkupTh13() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir13").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thRight13").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text(THIRD_WRONG).callbackData("thTh13").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp13").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageReplyMarkup editMessageReplyMarkup = new EditMessageReplyMarkup();
+        editMessageReplyMarkup.setMessageId(message_id);
+        editMessageReplyMarkup.setChatId(chat_id.toString());
+        editMessageReplyMarkup.setReplyMarkup(keyboard);
+        return editMessageReplyMarkup;
+    }
+    public EditMessageCaption editMessageCaptionHelp13() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir13").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thRight13").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thTh13").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp13").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageCaption editMessageCaption = new EditMessageCaption();
+        editMessageCaption.setCaption(caption.TTCHelp13);
+        editMessageCaption.setMessageId(message_id);
+        editMessageCaption.setChatId(chat_id.toString());
+        editMessageCaption.setReplyMarkup(keyboard);
+        return editMessageCaption;
+    }
+    public SendPhoto question14() {
+        SendPhoto sendPhoto = new SendPhoto();
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thRight14").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thSec14").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thTh14").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp14").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+
+        sendPhoto.setCaption(caption.TTC14);
+        sendPhoto.setPhoto(new InputFile(caption.TTP14));
+        sendPhoto.setChatId(chat_id.toString());
+        sendPhoto.setReplyMarkup(keyboard);
+        return sendPhoto;
+    }
+    public EditMessageReplyMarkup EditMessageReplyMarkupSec14() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thRight14").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text(SECOND_WRONG).callbackData("thSec14").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thTh14").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp14").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageReplyMarkup editMessageReplyMarkup = new EditMessageReplyMarkup();
+        editMessageReplyMarkup.setMessageId(message_id);
+        editMessageReplyMarkup.setChatId(chat_id.toString());
+        editMessageReplyMarkup.setReplyMarkup(keyboard);
+        return editMessageReplyMarkup;
+    }
+    public EditMessageReplyMarkup EditMessageReplyMarkupTh14() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thRight14").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thSec14").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text(THIRD_WRONG).callbackData("thTh14").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp14").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageReplyMarkup editMessageReplyMarkup = new EditMessageReplyMarkup();
+        editMessageReplyMarkup.setMessageId(message_id);
+        editMessageReplyMarkup.setChatId(chat_id.toString());
+        editMessageReplyMarkup.setReplyMarkup(keyboard);
+        return editMessageReplyMarkup;
+    }
+    public EditMessageCaption editMessageCaptionHelp14() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thRight14").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thSec14").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thTh14").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp14").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageCaption editMessageCaption = new EditMessageCaption();
+        editMessageCaption.setCaption(caption.TTCHelp14);
+        editMessageCaption.setMessageId(message_id);
+        editMessageCaption.setChatId(chat_id.toString());
+        editMessageCaption.setReplyMarkup(keyboard);
+        return editMessageCaption;
+    }
+    public SendPhoto question15() {
+        SendPhoto sendPhoto = new SendPhoto();
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir15").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thSec15").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thRight15").build();
+        InlineKeyboardButton button5 = InlineKeyboardButton.builder().text("4").callbackData("thFo15").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp15").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        keyboardButtons.add(button5);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+
+        sendPhoto.setCaption(caption.TTC15);
+        sendPhoto.setPhoto(new InputFile(caption.TTP15));
+        sendPhoto.setChatId(chat_id.toString());
+        sendPhoto.setReplyMarkup(keyboard);
+        return sendPhoto;
+    }
+    public EditMessageReplyMarkup EditMessageReplyMarkupFir15() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text(FIRST_WRONG).callbackData("thFir15").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thSec15").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thRight15").build();
+        InlineKeyboardButton button5 = InlineKeyboardButton.builder().text("4").callbackData("thFo15").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp15").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        keyboardButtons.add(button5);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageReplyMarkup editMessageReplyMarkup = new EditMessageReplyMarkup();
+        editMessageReplyMarkup.setMessageId(message_id);
+        editMessageReplyMarkup.setChatId(chat_id.toString());
+        editMessageReplyMarkup.setReplyMarkup(keyboard);
+        return editMessageReplyMarkup;
+    }
+    public EditMessageReplyMarkup EditMessageReplyMarkupSec15() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir15").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text(SECOND_WRONG).callbackData("thSec15").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thRight15").build();
+        InlineKeyboardButton button5 = InlineKeyboardButton.builder().text("4").callbackData("thFo15").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp15").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        keyboardButtons.add(button5);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageReplyMarkup editMessageReplyMarkup = new EditMessageReplyMarkup();
+        editMessageReplyMarkup.setMessageId(message_id);
+        editMessageReplyMarkup.setChatId(chat_id.toString());
+        editMessageReplyMarkup.setReplyMarkup(keyboard);
+        return editMessageReplyMarkup;
+    }
+    public EditMessageReplyMarkup EditMessageReplyMarkupFo15() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir15").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thSec15").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thRight15").build();
+        InlineKeyboardButton button5 = InlineKeyboardButton.builder().text(FOURTH_WRONG).callbackData("thFo15").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp15").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        keyboardButtons.add(button5);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageReplyMarkup editMessageReplyMarkup = new EditMessageReplyMarkup();
+        editMessageReplyMarkup.setMessageId(message_id);
+        editMessageReplyMarkup.setChatId(chat_id.toString());
+        editMessageReplyMarkup.setReplyMarkup(keyboard);
+        return editMessageReplyMarkup;
+    }
+    public EditMessageCaption editMessageCaptionHelp15() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir15").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thSec15").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thRight15").build();
+        InlineKeyboardButton button5 = InlineKeyboardButton.builder().text("4").callbackData("thFo15").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp15").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        keyboardButtons.add(button5);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageCaption editMessageCaption = new EditMessageCaption();
+        editMessageCaption.setCaption(caption.TTCHelp15);
+        editMessageCaption.setMessageId(message_id);
+        editMessageCaption.setChatId(chat_id.toString());
+        editMessageCaption.setReplyMarkup(keyboard);
+        return editMessageCaption;
+    }
+    public SendPhoto question16() {
+        SendPhoto sendPhoto = new SendPhoto();
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir16").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thSec16").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thRight16").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp16").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+
+        sendPhoto.setCaption(caption.TTC16);
+        sendPhoto.setPhoto(new InputFile(caption.TTP16));
+        sendPhoto.setChatId(chat_id.toString());
+        sendPhoto.setReplyMarkup(keyboard);
+        return sendPhoto;
+    }
+    public EditMessageReplyMarkup EditMessageReplyMarkupFir16() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text(FIRST_WRONG).callbackData("thFir16").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thSec16").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thRight16").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp16").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageReplyMarkup editMessageReplyMarkup = new EditMessageReplyMarkup();
+        editMessageReplyMarkup.setMessageId(message_id);
+        editMessageReplyMarkup.setChatId(chat_id.toString());
+        editMessageReplyMarkup.setReplyMarkup(keyboard);
+        return editMessageReplyMarkup;
+    }
+    public EditMessageReplyMarkup EditMessageReplyMarkupSec16() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir16").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text(SECOND_WRONG).callbackData("thSec16").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thRight16").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp16").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageReplyMarkup editMessageReplyMarkup = new EditMessageReplyMarkup();
+        editMessageReplyMarkup.setMessageId(message_id);
+        editMessageReplyMarkup.setChatId(chat_id.toString());
+        editMessageReplyMarkup.setReplyMarkup(keyboard);
+        return editMessageReplyMarkup;
+    }
+    public EditMessageCaption editMessageCaptionHelp16() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir16").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thSec16").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thRight16").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp16").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageCaption editMessageCaption = new EditMessageCaption();
+        editMessageCaption.setCaption(caption.TTCHelp16);
+        editMessageCaption.setMessageId(message_id);
+        editMessageCaption.setChatId(chat_id.toString());
+        editMessageCaption.setReplyMarkup(keyboard);
+        return editMessageCaption;
+    }
+    public SendPhoto question17() {
+        SendPhoto sendPhoto = new SendPhoto();
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir17").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thSec17").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thTh17").build();
+        InlineKeyboardButton button5 = InlineKeyboardButton.builder().text("4").callbackData("thRight17").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp17").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        keyboardButtons.add(button5);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+
+        sendPhoto.setCaption(caption.TTC17);
+        sendPhoto.setPhoto(new InputFile(caption.TTP17));
+        sendPhoto.setChatId(chat_id.toString());
+        sendPhoto.setReplyMarkup(keyboard);
+        return sendPhoto;
+    }
+    public EditMessageReplyMarkup EditMessageReplyMarkupFir17() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text(FIRST_WRONG).callbackData("thFir17").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thSec17").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thTh17").build();
+        InlineKeyboardButton button5 = InlineKeyboardButton.builder().text("4").callbackData("thRight17").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp17").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        keyboardButtons.add(button5);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageReplyMarkup editMessageReplyMarkup = new EditMessageReplyMarkup();
+        editMessageReplyMarkup.setMessageId(message_id);
+        editMessageReplyMarkup.setChatId(chat_id.toString());
+        editMessageReplyMarkup.setReplyMarkup(keyboard);
+        return editMessageReplyMarkup;
+    }
+    public EditMessageReplyMarkup EditMessageReplyMarkupSec17() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir17").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text(SECOND_WRONG).callbackData("thSec17").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thTh17").build();
+        InlineKeyboardButton button5 = InlineKeyboardButton.builder().text("4").callbackData("thRight17").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp17").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        keyboardButtons.add(button5);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageReplyMarkup editMessageReplyMarkup = new EditMessageReplyMarkup();
+        editMessageReplyMarkup.setMessageId(message_id);
+        editMessageReplyMarkup.setChatId(chat_id.toString());
+        editMessageReplyMarkup.setReplyMarkup(keyboard);
+        return editMessageReplyMarkup;
+    }
+    public EditMessageReplyMarkup EditMessageReplyMarkupTh17() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir17").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thSec17").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text(THIRD_WRONG).callbackData("thTh17").build();
+        InlineKeyboardButton button5 = InlineKeyboardButton.builder().text("4").callbackData("thRight17").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp17").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        keyboardButtons.add(button5);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageReplyMarkup editMessageReplyMarkup = new EditMessageReplyMarkup();
+        editMessageReplyMarkup.setMessageId(message_id);
+        editMessageReplyMarkup.setChatId(chat_id.toString());
+        editMessageReplyMarkup.setReplyMarkup(keyboard);
+        return editMessageReplyMarkup;
+    }
+    public EditMessageCaption editMessageCaptionHelp17() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir17").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thSec17").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thTh17").build();
+        InlineKeyboardButton button5 = InlineKeyboardButton.builder().text("4").callbackData("thRight17").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp17").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        keyboardButtons.add(button5);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageCaption editMessageCaption = new EditMessageCaption();
+        editMessageCaption.setCaption(caption.TTCHelp17);
+        editMessageCaption.setMessageId(message_id);
+        editMessageCaption.setChatId(chat_id.toString());
+        editMessageCaption.setReplyMarkup(keyboard);
+        return editMessageCaption;
+    }
+    public SendPhoto question18() {
+        SendPhoto sendPhoto = new SendPhoto();
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir18").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thRight18").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thTh18").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp18").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+
+        sendPhoto.setCaption(caption.TTC18);
+        sendPhoto.setPhoto(new InputFile(caption.TTP18));
+        sendPhoto.setChatId(chat_id.toString());
+        sendPhoto.setReplyMarkup(keyboard);
+        return sendPhoto;
+    }
+    public EditMessageReplyMarkup EditMessageReplyMarkupFir18() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text(FIRST_WRONG).callbackData("thFir18").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thRight18").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thTh18").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp18").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageReplyMarkup editMessageReplyMarkup = new EditMessageReplyMarkup();
+        editMessageReplyMarkup.setMessageId(message_id);
+        editMessageReplyMarkup.setChatId(chat_id.toString());
+        editMessageReplyMarkup.setReplyMarkup(keyboard);
+        return editMessageReplyMarkup;
+    }
+    public EditMessageReplyMarkup EditMessageReplyMarkupTh18() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir18").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thRight18").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text(THIRD_WRONG).callbackData("thTh18").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp18").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageReplyMarkup editMessageReplyMarkup = new EditMessageReplyMarkup();
+        editMessageReplyMarkup.setMessageId(message_id);
+        editMessageReplyMarkup.setChatId(chat_id.toString());
+        editMessageReplyMarkup.setReplyMarkup(keyboard);
+        return editMessageReplyMarkup;
+    }
+    public EditMessageCaption editMessageCaptionHelp18() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir18").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thRight18").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thTh18").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp18").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageCaption editMessageCaption = new EditMessageCaption();
+        editMessageCaption.setCaption(caption.TTCHelp18);
+        editMessageCaption.setMessageId(message_id);
+        editMessageCaption.setChatId(chat_id.toString());
+        editMessageCaption.setReplyMarkup(keyboard);
+        return editMessageCaption;
+    }
+    public SendPhoto question19() {
+        SendPhoto sendPhoto = new SendPhoto();
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir19").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thSec19").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thRight19").build();
+        InlineKeyboardButton button5 = InlineKeyboardButton.builder().text("4").callbackData("thFo19").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp19").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        keyboardButtons.add(button5);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+
+        sendPhoto.setCaption(caption.TTC19);
+        sendPhoto.setPhoto(new InputFile(caption.TTP19));
+        sendPhoto.setChatId(chat_id.toString());
+        sendPhoto.setReplyMarkup(keyboard);
+        return sendPhoto;
+    }
+    public EditMessageReplyMarkup EditMessageReplyMarkupFir19() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text(FIRST_WRONG).callbackData("thFir19").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thSec19").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thRight19").build();
+        InlineKeyboardButton button5 = InlineKeyboardButton.builder().text("4").callbackData("thFo19").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp19").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        keyboardButtons.add(button5);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageReplyMarkup editMessageReplyMarkup = new EditMessageReplyMarkup();
+        editMessageReplyMarkup.setMessageId(message_id);
+        editMessageReplyMarkup.setChatId(chat_id.toString());
+        editMessageReplyMarkup.setReplyMarkup(keyboard);
+        return editMessageReplyMarkup;
+    }
+    public EditMessageReplyMarkup EditMessageReplyMarkupSec19() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir19").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text(SECOND_WRONG).callbackData("thSec19").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thRight19").build();
+        InlineKeyboardButton button5 = InlineKeyboardButton.builder().text("4").callbackData("thFo19").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp19").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        keyboardButtons.add(button5);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageReplyMarkup editMessageReplyMarkup = new EditMessageReplyMarkup();
+        editMessageReplyMarkup.setMessageId(message_id);
+        editMessageReplyMarkup.setChatId(chat_id.toString());
+        editMessageReplyMarkup.setReplyMarkup(keyboard);
+        return editMessageReplyMarkup;
+    }
+    public EditMessageReplyMarkup EditMessageReplyMarkupFo19() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir19").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thSec19").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thRight19").build();
+        InlineKeyboardButton button5 = InlineKeyboardButton.builder().text(FOURTH_WRONG).callbackData("thFo19").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp19").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        keyboardButtons.add(button5);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageReplyMarkup editMessageReplyMarkup = new EditMessageReplyMarkup();
+        editMessageReplyMarkup.setMessageId(message_id);
+        editMessageReplyMarkup.setChatId(chat_id.toString());
+        editMessageReplyMarkup.setReplyMarkup(keyboard);
+        return editMessageReplyMarkup;
+    }
+    public EditMessageCaption editMessageCaptionHelp19() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir19").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thSec19").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thRight19").build();
+        InlineKeyboardButton button5 = InlineKeyboardButton.builder().text("4").callbackData("thFo19").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp19").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        keyboardButtons.add(button5);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageCaption editMessageCaption = new EditMessageCaption();
+        editMessageCaption.setCaption(caption.TTCHelp19);
+        editMessageCaption.setMessageId(message_id);
+        editMessageCaption.setChatId(chat_id.toString());
+        editMessageCaption.setReplyMarkup(keyboard);
+        return editMessageCaption;
+    }
+    public SendPhoto question20() {
+        SendPhoto sendPhoto = new SendPhoto();
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir20").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thSec20").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thTicketlast20").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp20").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+
+        sendPhoto.setCaption(caption.TTC20);
+        sendPhoto.setPhoto(new InputFile(caption.TTP20));
+        sendPhoto.setChatId(chat_id.toString());
+        sendPhoto.setReplyMarkup(keyboard);
+        return sendPhoto;
+    }
+    public EditMessageReplyMarkup EditMessageReplyMarkupFir20() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text(FIRST_WRONG).callbackData("thFir20").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thSec20").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thTicketlast20").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp20").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageReplyMarkup editMessageReplyMarkup = new EditMessageReplyMarkup();
+        editMessageReplyMarkup.setMessageId(message_id);
+        editMessageReplyMarkup.setChatId(chat_id.toString());
+        editMessageReplyMarkup.setReplyMarkup(keyboard);
+        return editMessageReplyMarkup;
+    }
+    public EditMessageReplyMarkup EditMessageReplyMarkupSec20() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir20").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text(SECOND_WRONG).callbackData("thSec20").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thTicketlast20").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp20").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageReplyMarkup editMessageReplyMarkup = new EditMessageReplyMarkup();
+        editMessageReplyMarkup.setMessageId(message_id);
+        editMessageReplyMarkup.setChatId(chat_id.toString());
+        editMessageReplyMarkup.setReplyMarkup(keyboard);
+        return editMessageReplyMarkup;
+    }
+    public EditMessageCaption editMessageCaptionHelp20() {
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtons1 = new ArrayList<>();
+        InlineKeyboardButton button1 = InlineKeyboardButton.builder().text("1").callbackData("thFir20").build();
+        InlineKeyboardButton button2 = InlineKeyboardButton.builder().text("2").callbackData("thSec20").build();
+        InlineKeyboardButton button3 = InlineKeyboardButton.builder().text("3").callbackData("thTicketlast20").build();
+        InlineKeyboardButton button4 = InlineKeyboardButton.builder().text("Подсказка").callbackData("thHelp20").build();
+        keyboardButtons.add(button1);
+        keyboardButtons.add(button2);
+        keyboardButtons.add(button3);
+        keyboardButtons1.add(button4);
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+        buttons.add(keyboardButtons1);
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
+        keyboard.setKeyboard(buttons);
+        EditMessageCaption editMessageCaption = new EditMessageCaption();
+        editMessageCaption.setCaption(caption.TTCHelp20);
+        editMessageCaption.setMessageId(message_id);
+        editMessageCaption.setChatId(chat_id.toString());
+        editMessageCaption.setReplyMarkup(keyboard);
+        return editMessageCaption;
+    }
+}
